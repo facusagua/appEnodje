@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Enodje</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!-- Path to your custom app styles--> 
+    <link rel="stylesheet" href="css/my-app.css">
+   
+  </head>
+  <body class="layout-white"> 
+    <!-- Views-->
+    <div class="views theme-red">
+      
+      <!-- Right view, it is main view-->
+      <div class="view navbar-through">
+       <div class="navbar theme-black">
+            <div class="navbar-inner">
+                <div class="center">
+                  <a href="index.html" class="link icon-only"><img src="img/logoEnodjeS.png" height="50px"></a> 
+                </div>
+                <div class="right">
+                    <a href="about.html" class="link icon-only">
+                        <i class="material-icons">chat</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar toolbar-bottom">
+          <div class="toolbar-inner">
+             <div class="left"><a href="#" class="back link"><i class="material-icons">navigate_before</i></a></div>
+          </div>
+        </div>
+        <!-- Pages-->
+        <div class="pages">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index-1" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+              <div class="list-block media-list theme-green">
+                <ul>
+                  <li><a href="page.html" class="item-link item-content">
+                      <div class="item-media"><img src="img/ped1.png" width="60"/></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title" style="color:#f44336;"><b>PEDIDOS ON-LINE</b></div>
+                        </div>
+                        <div class="item-text"><b>Realizá tu pedido de recargas, Matafuegos nuevos o articulos de seguridad.</b></div>
+                      </div></a></li>
+                  <li><a href="info.html" class="item-link item-content">
+                      <div class="item-media"><img src="img/info11.png" width="60"/></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title"><b>INFO GENERAL</b></div>
+                        </div>
+                        <div class="item-text">Origen del fuego, clases de fuego y tipos de matafuegos.</div>
+                      </div></a></li>
+                  <li><a href="services.html" class="item-link item-content">
+                      <div class="item-media"><img src="img/dot11.png" width="60"/></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title"><b>UBICACIÓN Y DOTACIÓN</b></div>
+                        </div>
+                        <div class="item-text">Determina la cantidad, tipo y ubucación de los extintores según el uso que se le dará al lugar a proteger.</div>
+                      </div></a></li>
+                  <li><a href="#" class="item-link item-content">
+                      <div class="item-media"><img src="img/carga11.png" width="60"/></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title"><b>CARGA DE FUEGO</b></div>
+                        </div>
+                        <div class="item-text">Calcula la cantidad de energía resultante de la combustión total de los materiales de un sector de incendio.</div>
+                      </div></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <a href="#" class="floating-button color-green">
+          <i class="material-icons">add_shopping_cart</i>
+        </a>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+  </body>
+</html>
