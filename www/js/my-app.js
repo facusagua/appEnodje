@@ -5,7 +5,8 @@ var $$ = Dom7;
 var myApp = new Framework7(
 	{
 	material: true,
-	materialPageLoadDelay: 2
+	materialPageLoadDelay: 2,
+	animatePages: false
 });
 
 // Export selectors engine
