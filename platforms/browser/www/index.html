@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/dotacion.ico" />
     <title>Enodje</title>
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="css/framework7.material.min.css">
@@ -28,17 +29,18 @@
       <div class="view navbar-through">
        <div class="navbar theme-white">
             <div class="navbar-inner">
+                <div class="left"> </div>
                 <div class="center">
-                  <a href="index.html" class="link icon-only"><img src="img/logoEnodje.png" height="50px"></a> 
+                    <a href="index.html" class="link icon-only"><img src="img/logoEnodje.png" height="50px"></a> 
                 </div>
-                
+                <div class="right"> </div>
             </div>
         </div>
         <div class="toolbar toolbar-bottom">
-          <div class="toolbar-inner">
+          <div id="menuinf" class="toolbar-inner">
              <div class="left">
                 <a href="#" class="back link"><i class="material-icons" >&#xE5C4;</i></a>
-              </div>
+              </div> 
           </div>
         </div>
         <!-- Pages-->
@@ -49,7 +51,7 @@
             <div class="page-content">
               <div class="list-block media-list theme-green">
                 <ul>
-                  <li><a href="page.html" class="item-link item-content">
+                  <li><a href="productos.html" class="item-link item-content">
                       <div class="item-media"><img src="img/ped1.png" width="60"/></div>
                       <div class="item-inner">
                         <div class="item-title-row">
@@ -73,7 +75,7 @@
                         </div>
                         <div class="item-text">Determina la cantidad, tipo y ubucación de los extintores según el uso que se le dará al lugar a proteger.</div>
                       </div></a></li>
-                  <li><a href="#" class="item-link item-content">
+                  <li><a href="cargafuego.html" class="item-link item-content">
                       <div class="item-media"><img src="img/carga11.png" width="60"/></div>
                       <div class="item-inner">
                         <div class="item-title-row">
@@ -81,7 +83,7 @@
                         </div>
                         <div class="item-text">Calcula la cantidad de energía resultante de la combustión total de los materiales de un sector de incendio.</div>
                       </div></a></li>
-                   <li><a href="#" class="item-link item-content">
+                   <li><a href="contacto.html" class="item-link item-content">
                       <div class="item-media"><img src="img/contacto.png" width="60"/></div>
                       <div class="item-inner">
                         <div class="item-title-row">
@@ -94,15 +96,18 @@
             </div>
           </div>
         </div> 
-        <a href="#" class="floating-button color-green">
+        <a href="#" id="btn1" class="floating-button color-green">
           <i class="material-icons">&#xE854;</i>
         </a>
       </div>
     </div>
+    
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <!-- Path to your app js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
   </body>
 </html>
