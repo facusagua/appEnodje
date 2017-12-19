@@ -224,9 +224,11 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
                 if(tilde){
                    var idCliente = $$('#id_cliente').val();
                    var clienteData = new Array();
-                
+                    clienteData.push(myApp.formGetData('datos_cliente'));
+                    
+//CLIENTE NUEVO SE REALIZA ESTA ACCION
                     if(idCliente == "nuevo"){  
-                        clienteData.push(myApp.formGetData('datos_cliente'));
+                        
                         axios.post('http://www.enodje.e-widux.com/api/tam_clientes',
                         {
                                 "cod_empresa": 1,
@@ -247,27 +249,88 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
                                 "nro_documento": clienteData[0].dni_cliente
                           })
                           .then(function (response) {
-                             $$('#btnokpedido').click();
-                             $$("#datos_cliente")[0].reset();
-                             $$('#datos_cliente').hide();
-                        })
+                                 var listadoPedido = new Array();
+                                 pedidosData.forEach(function (elemento, indice, array) {
+                                  var itemsPedido = {"tipo": elemento.tipo_prod ,
+                                      "cantidad": elemento.cant_prod , "precio": elemento.pf_prod ,
+                                      "total":  elemento.cant_prod*elemento.pf_prod ,"id_producto": elemento.id_prod};
+                                      listadoPedido.push(itemsPedido);          
+                                    });
+
+                                   var pedidos2 = {"cod_empresa": 1,"id_cliente": response.data.id_cliente,
+                                      "estado": "0","calle": response.data.calle,"numero": response.data.numero,
+                                      "depto": response.data.depto,"piso": response.data.piso,"manzana": response.data.manzana,
+                                      "lote": response.data.lote,"cod_localidad": response.data.cod_localidad,
+                                      "tar_pedidos_detall": listadoPedido
+                                    };   
+                                     
+                                 axios.post('http://www.enodje.e-widux.com/api/tam_pedidos', pedidos2)
+                                  .then(function (response) {
+                                    console.log("seha creado el pedido");
+                                    console.log(response);
+                                    
+                                  })
+                                  .catch(function (error) {
+                                    console.log(error);
+                                  });
+                                   $$('#btnokpedido').click();
+                                   $$("#datos_cliente")[0].reset();
+                                   $$('#datos_cliente').hide();
+                                   debugger
+                                   pedidosData.length=0;
+                                   $$('#carro_cantidad').html();
+                                })
                           .catch(function (error) {
-                            console.log(error);
+                                myApp.addNotification({
+                                  message: 'Hay datos incorrectos',
+                                  hold: 1000,
+                                  button: {
+                                      text: '',
+                                      color: 'black',
+                                      close: false
+                                  }
+                              });
                         });
                       }
+//SI EL CLIENTE YA EXISTE SE REALIZA ESTA ACCION                      
                       else{
-                        myApp.addNotification({
-                              message: 'Los datos seran modificados',
-                              hold: 1000,
-                              button: {
-                                  text: '',
-                                  color: 'black',
-                                  close: false
-                              }
-                          });
-                        $$('#btnokpedido').click();
-                      }    
+                                var listadoPedido = new Array();
+                                 pedidosData.forEach(function (elemento, indice, array) {
+                                  var itemsPedido = {"tipo": elemento.tipo_prod ,
+                                      "cantidad": elemento.cant_prod , "precio": elemento.pf_prod ,
+                                      "total":  elemento.cant_prod*elemento.pf_prod ,"id_producto": elemento.id_prod};
+                                      listadoPedido.push(itemsPedido);          
+                                    });
+
+                                 console.log(listadoPedido);
+
+                                   var pedidos2 = {"cod_empresa": 1,"id_cliente": idCliente,
+                                      "estado": "0","calle": clienteData[0].direccion_cliente,"numero": clienteData[0].numero_cliente,
+                                      "depto": clienteData[0].dpto_cliente,"piso": clienteData[0].piso_cliente,"manzana": clienteData[0].manzana_cliente,
+                                      "lote": clienteData[0].lote_cliente,"cod_localidad": clienteData[0].ciudad_cliente,
+                                      "tar_pedidos_detall": listadoPedido
+                                    };   
+                                     
+                                 axios.post('http://www.enodje.e-widux.com/api/tam_pedidos', pedidos2)
+                                  .then(function (response) {
+                                    console.log("se ha creado el pedido");
+                                    console.log(response);
+                                    $$('#carro_cantidad').html();
+                                  })
+                                  .catch(function (error) {
+                                    console.log(error);
+                                  });
+                                   $$("#datos_cliente")[0].reset();
+                                   $$('#datos_cliente').hide();
+                                   $$('#btnokpedido').click();
+                                   debugger
+                                   pedidosData.length=0;
+                                   $$('#carro_cantidad').html();
+
+                      }
+
                     }
+  //SI NO TILDO ACEPTAR QUE LOS DATOS SEAN GUARDADOS                 
                       else{
                          myApp.addNotification({
                               message: 'Debe aceptar los datos',
