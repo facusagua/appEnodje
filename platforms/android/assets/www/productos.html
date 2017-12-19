@@ -1,28 +1,41 @@
 <div data-page="productos" class="page tabbar-labels-fixed"">
   <div class="page-content">
+  
+  <style>
+    .col-25 {
+      padding:5px;
+      text-align:center;
+    }
+    .col-dark {
+      background:#222;
+    }
+  </style>
     <div class="content-block-title">Elija sus Articulos</div>
     <div class="list-block media-list">
+      <div class="col-25">
+          <span style="width:42px; height:42px" class="preloader preloader-red"></span>
+      </div>
       <ul id="listadoproductos">   
       </ul>
     </div>
     <div class="picker-modal picker-info">
     <div class="toolbar">
       <div class="toolbar-inner">
-        <div class="left"></div>
-        <div class="right"><a href="#" class="close-picker">Done</a></div>
+        <div class="left"><a href="#" class="close-picker" style="color: white;">  Cerrar</a></div>
+        <div class="right"><a href="#" class="close-picker">X</a></div>
       </div>
     </div>
     <div class="picker-modal-inner">
       <div class="content-block">
-        <form id="my-form2" class="list-block store-data">
+        <form id="form-pedidos" class="list-block store-data">
           <div class="row">
             <div class="col-50">
-              <div class="list-block"  style="margin-top: 10px;">
+              <div class="list-block"  style="margin-top: 5px;">
                   <ul>
                     <li>
                       <label class="label-radio item-content">
                         <!-- Checked by default -->
-                        <input type="radio" name="my-radio" value="Books" checked="checked">
+                        <input type="radio" id="tipo_prodn" name="tipo_prod" value="N" checked="checked" required>
                         <div class="item-media">
                           <i class="icon icon-form-radio"></i>
                         </div>
@@ -34,7 +47,7 @@
                     <!-- Another radio input -->
                     <li id="itemrecarga">
                       <label class="label-radio item-content">
-                        <input type="radio" name="my-radio" value="Movies">
+                        <input type="radio" id="tipo_prodc" name="tipo_prod" value="C" required>
                         <div class="item-media">
                           <i class="icon icon-form-radio"></i>
                         </div>
@@ -43,27 +56,35 @@
                         </div>
                       </label>
                     </li>
-                    ...
                   </ul>
                 </div>    
             </div>
             <div class="col-50">
-                <div class="list-block"  style="margin-top: 10px;">
+                <div class="list-block"  style="margin-top: 5px;">
                   <ul>
                     <li>
                       <div class="item-content">
                         <div class="item-inner">
                           <div class="item-input">
-                            <input type="number" placeholder="Cantidad">
+                            <input type="number" id="cant_prod" name="cant_prod" placeholder="Cantidad" required>
+                            <input type="hidden" id="id_prod" name="id_prod" >
+                            <input type="hidden" id="pn_prod" name="pn_prod" >
+                            <input type="hidden" id="pc_prod" name="pc_prod" >
+                            <input type="hidden" id="pf_prod" name="pf_prod" >
+                            <input type="hidden" id="nom_prod" name="nom_prod" >
                           </div>
                         </div>
                       </div>
                     </li>
-                  </ul>
-                  <p class="buttons-row">
-                    <a href="#" class="button button-big color-red">Agregar</a>
-                  </p>
-                </div>     
+                  </ul>   
+                 </div>
+            </div>
+            <div class="col-100">
+            <div class="list-block" style="margin-top: 0px;">
+              <ul>
+                 <li><a href="#" id="btnAgregarProd" class="button button-fill button-raised ">Agregar</a></li>
+              </ul>
+            </div>
             </div>
           </div>  
         </form>

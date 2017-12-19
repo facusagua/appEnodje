@@ -1,0 +1,220 @@
+
+<div class="pages">
+  <div data-page="checkoutdni" class="page">
+    <div class="page-content">
+    <style>
+    .col-25 {
+      padding:5px;
+      text-align:center;
+    }
+    .col-dark {
+      background:#222;
+    }
+    </style>
+    <div class="list-block">
+      <div  class="list-group">
+        <div id="busca_cliente">
+            <ul>
+              <li class="list-group-title">Ingrese su DNI</li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons">&#xE8A6;</i></div>
+                  <div class="item-inner">
+                    <div class="item-input">
+                      <input type="text" id="buscadni_cliente" placeholder="Ingrese su Dni">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <br><br>
+              <li>
+                <a href="#" id="btn_buscacliente" class="button button-fill button-raised color-green">
+                  Siguiente 
+                </a> 
+              </li>
+            </ul>
+          </div>    
+          <form id="datos_cliente" class="list-block store-data">
+            <ul>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="material-icons">&#xE8AA;</i></div>
+                    <div class="item-inner">
+                      <div class="item-input">
+                        <input type="text" name="dni_cliente" id="dni_cliente" placeholder="Dni">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="material-icons">&#xE7FC;</i></div>
+                    <div class="item-inner">
+                      <div class="item-input">
+                        <input type="text" name="nombre_cliente" id="nombre_cliente" placeholder="Nombre">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="material-icons">&#xE7FB;</i></div>
+                    <div class="item-inner">
+                      <div class="item-input">
+                        <input type="text" name="apellido_cliente" id="apellido_cliente" placeholder="Apellido">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="material-icons">&#xE0BE;</i></div>
+                    <div class="item-inner">
+                      <div class="item-input">
+                        <input type="email" name="email_cliente" id="email_cliente" placeholder="E-mail">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <div class="row">
+                      <div class="col-30">
+                        <li>
+                            <div class="item-content">
+                              <div class="item-media"><i class="material-icons">&#xE551;</i></div>
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <input type="email" name="ca_cliente" id="ca_cliente" placeholder="CA">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                      </div>
+                      <div class="col-70">
+                          <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <input type="email" name="tel_cliente" id="tel_cliente" placeholder="Número">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                      </div>
+                 </div>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="material-icons">&#xE55B;</i></div>
+                    <div class="item-inner">
+                      <div class="item-input">
+                        <input type="email" name="direccion_cliente" id="direccion_cliente" placeholder="Dirección">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <div class="row">
+                      <div class="col-50">
+                        <li>
+                            <div class="item-content">
+                              <div class="item-media"><i class="material-icons">&#xE242;</i></div>
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <input type="email" name="numero_cliente" id="numero_cliente" placeholder="Número">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                      </div>
+                      <div class="col-50">
+                          <li>
+                            <div class="item-content">
+                              <div class="item-media"><i class="material-icons">&#xE42A;</i></div>
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <input type="email" name="dpto_cliente" id="dpto_cliente" placeholder="Dpto">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                      </div>
+                 </div>
+                 <div class="row">
+                      <div class="col-30">
+                        <li>
+                            <div class="item-content">
+                              <div class="item-media"><i class="material-icons">&#xE8EE;</i></div>
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <input type="email" name="piso_cliente" id="piso_cliente" placeholder="Piso">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                      </div>
+                      <div class="col-30">
+                          <li>
+                            <div class="item-content">
+                              <div class="item-media"><i class="material-icons">&#xE434;</i></div>
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <input type="email" name="mzna_cliente" id="mzna_cliente" placeholder="Manzana">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                      </div>
+                      <div class="col-30">
+                        <li>
+                            <div class="item-content">
+                              <div class="item-media"><i class="material-icons">&#xE406;</i></div>
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <input type="email" name="lote_cliente" id="lote_cliente" placeholder="Lote">
+                                  <input type="hidden" name="id_cliente" id="id_cliente" value="nuevo" placeholder="Lote">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                      </div>
+                 </div>     
+                <!-- Select -->
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="material-icons">&#xE7F1;</i></div>
+                    <div class="item-inner">
+                      <div class="item-input">
+                        <select name="ciudad_cliente" id="ciudad_cliente">
+                          <option value="1">Yerba Buena</option>
+                          <option value="2">San Miguel de Tucuman</option>
+                          <option value="3">Montero</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <label class="label-checkbox item-content">
+                    <!-- Checked by default -->
+                    <input type="checkbox" id="datosOK" name="datosOk">
+                    <div class="item-media">
+                      <i class="icon icon-form-checkbox"></i>
+                    </div>
+                    <div class="item-inner">
+                      <div class="item-title">Acepto actualizar mis datos (marcar para efectuar el pedido)</div>
+                    </div>
+                  </label>
+                </li>
+                <br><br>
+                <li><a href="#" id="btnPedido" class="button button-fill button-raised color-blue">Realizar Pedido</a></li>
+              </ul>
+          </form>
+      </div>
+      </div>
+      <div class="col-25">
+            <span style="width:42px; height:42px" class="preloader preloader-red"></span>
+            <a href="pedidook.html" id="btnokpedido"></a>
+      </div>
+    </div>
+    </div>   
+  </div>
+</div>
+
