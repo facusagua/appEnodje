@@ -4,9 +4,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>MatafuegosEnodje</name>
+    <name>Matafuegos Ya</name>
     <description>
-        Aplicacion de seguridad
+        La App que mas sabe de incendios!
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Widux.com.ar

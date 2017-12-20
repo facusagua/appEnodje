@@ -293,7 +293,8 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
                         });
                       }
 //SI EL CLIENTE YA EXISTE SE REALIZA ESTA ACCION                      
-                      else{
+                      else{ 
+                        debugger
                                 var listadoPedido = new Array();
                                  pedidosData.forEach(function (elemento, indice, array) {
                                   var itemsPedido = {"tipo": elemento.tipo_prod ,
@@ -301,8 +302,6 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
                                       "total":  elemento.cant_prod*elemento.pf_prod ,"id_producto": elemento.id_prod};
                                       listadoPedido.push(itemsPedido);          
                                     });
-
-                                 console.log(listadoPedido);
 
                                    var pedidos2 = {"cod_empresa": 1,"id_cliente": idCliente,
                                       "estado": "0","calle": clienteData[0].direccion_cliente,"numero": clienteData[0].numero_cliente,
@@ -315,18 +314,15 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
                                   .then(function (response) {
                                     console.log("se ha creado el pedido");
                                     console.log(response);
+                                    $$("#datos_cliente")[0].reset();
+                                    $$('#datos_cliente').hide();
+                                    $$('#btnokpedido').click();
+                                    pedidosData.length=0;
                                     $$('#carro_cantidad').html();
                                   })
                                   .catch(function (error) {
                                     console.log(error);
                                   });
-                                   $$("#datos_cliente")[0].reset();
-                                   $$('#datos_cliente').hide();
-                                   $$('#btnokpedido').click();
-                                   debugger
-                                   pedidosData.length=0;
-                                   $$('#carro_cantidad').html();
-
                       }
 
                     }
