@@ -40,10 +40,6 @@
         <splash src="res/screen/android/screen-xhdpi-portrait.png" qualifier="port-mdpi"/>
     </platform>
 
-    <gap:config-file platform="android" parent="/manifest">
-         <application android:debuggable="false" />
-    </gap:config-file>
-
     <engine name="android" spec="~6.3.0" />
     
 </widget>
