@@ -1,0 +1,127 @@
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">Services</div>
+  </div>
+</div>
+<div class="pages">
+  <div data-page="comercio" class="page">
+    <div class="page-content">
+      <div class="content-block" style="text-align: center;">
+        <h2>UBICACIÓN Y DOTACIÓN</h2>
+        <div class="row">
+          <div class="col-100">
+              <p>Comercios/Locales</p>
+          </div>
+        </div>
+      </div>
+      <div id="tomadatos" class="list-block media-list">
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th class="label-cell">Ubicación</th>
+                <th class="numeric-cell">Cant.</th>
+                <th class="numeric-cell">Sup.m2.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="label-cell">Areas generales</td>
+                <td class="numeric-cell"><input type="text" id="pisoc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="pisos" style="text-align: right;" value="0"></td>
+              </tr>
+               <tr>
+                <td class="label-cell">Vestuarios de personal</td>
+                <td class="numeric-cell"><input type="text" id="sumc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="sums" style="text-align: right;" value="0"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Cochera</td>
+                <td class="numeric-cell"><input type="text" id="cocherac" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Sala Máquinas</td>
+                <td class="numeric-cell"><input type="text" id="salamaqc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Sala Servidores</td>
+                <td class="numeric-cell"><input type="text" id="gasc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"></td>
+              </tr>
+             
+            </tbody>
+          </table>
+          <a href="" id="btncalcomercio" class="button button-fill button-raised color-blue">Calcular</a>
+        </div>
+      </div>
+      <div id="calculos" class="list-block media-list">
+        <div class="data-table">
+          <table>
+            <thead style="background-color: #f44336; color: white;">
+              <tr>
+                <th class="label-cell">Tipo</th>
+                <th class="numeric-cell">Cant.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="label-cell">ABC x 5KG</td>
+                <td class="numeric-cell" id="totalABC"></td>
+              </tr>
+               <tr>
+                <td class="label-cell">CO2 x 5KG</td>
+                <td class="numeric-cell" id="totalCO2"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Halogenado x 5KG</td>
+                <td class="numeric-cell" id="totalHalo"></td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+          <table>
+            <thead style="background-color: #4caf50; color: white;">
+              <tr>
+                <th class="label-cell">Ubicación</th>
+                <th class="numeric-cell">Cant.</th>
+                <th class="numeric-cell">Tipo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="label-cell">Areas generales</td>
+                <td class="numeric-cell" id="pisodat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+               <tr>
+                <td class="label-cell">Vestuarios de personal</td>
+                <td class="numeric-cell" id="sumdat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Cochera</td>
+                <td class="numeric-cell" id="cochdat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Sala Máquinas</td>
+                <td class="numeric-cell" id="salamaqdat"></td>
+                <td class="numeric-cell">CO2 x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Sala Servidores</td>
+                <td class="numeric-cell" id="gasdat"></td>
+                <td class="numeric-cell">Halogenado x 5KG</td>
+              </tr>
+             
+            </tbody>
+          </table>
+        </div>
+      </div>     
+    </div>
+  </div>
+</div>

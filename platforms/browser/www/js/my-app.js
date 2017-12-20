@@ -171,6 +171,469 @@ $$(document).on('page:init', '.page[data-page="carrito"]', function (e) {
       }
 })
 
+$$(document).on('page:init', '.page[data-page="ph"]', function (e) {
+      
+     debugger
+  $$('#calculos').hide();
+
+  $$('#btncalph').on('click',function(){
+  debugger 
+     var abc5 = 0;
+     var co2 = 0;
+
+     var pisoc = $$('#pisoc').val();
+     var pisos = $$('#pisos').val();
+     var sumc = $$('#sumc').val();
+     var sums = $$('#sums').val();
+     var cocherac = $$('#cocherac').val();
+     var salamaqc = $$('#salamaqc').val();
+     var gasc = $$('#gasc').val();
+
+     var cantpiso  = parseInt(Math.ceil(pisos/200))  * parseInt(pisoc);
+     var cantsum   =  parseInt(Math.ceil(sums/200)) * parseInt(sumc);
+     var cantconch = parseInt(Math.ceil(cocherac/5));
+     
+     abc5 = parseInt(cantpiso) + parseInt(cantsum) + parseInt(cantconch) + parseInt(gasc);
+     co2 = salamaqc;
+
+     $$('#pisodat').html(cantpiso);
+     $$('#sumdat').html(cantsum);
+     $$('#cochdat').html(cantconch);
+     $$('#salamaqdat').html(salamaqc);
+     $$('#gasdat').html(gasc);
+     $$('#totalABC').html(abc5);
+     $$('#totalCO2').html(co2);
+
+
+     $$('#tomadatos').hide();
+     $$('#calculos').show();  
+ });
+})
+
+$$(document).on('page:init', '.page[data-page="vivienda"]', function (e) {
+      
+  $$('#calculos').hide();
+
+  $$('#btncalviv').on('click',function(){
+     var abc5 = 0;
+     
+     var pisos = $$('#pisos').val();
+     var cocherac = $$('#cocherac').val();
+     
+     var cantpiso  = parseInt(Math.ceil(pisos/200));
+     var cantconch = parseInt(Math.ceil(cocherac/5));
+     
+     abc5 = parseInt(cantpiso) + parseInt(cantconch);
+     
+     $$('#pisodat').html(cantpiso);
+     $$('#cochdat').html(cantconch);
+     $$('#totalABC').html(abc5);
+
+     $$('#tomadatos').hide();
+     $$('#calculos').show();  
+ });
+})
+
+$$(document).on('page:init', '.page[data-page="oficina"]', function (e) {
+      
+     debugger
+  $$('#calculos').hide();
+
+  $$('#btncalofi').on('click',function(){
+  debugger 
+     var abc5 = 0;
+     var co2 = 0;
+     var halo = 0;
+
+     var genc = $$('#genc').val();
+     var gens = $$('#gens').val();
+     var arcc = $$('#arcc').val();
+     var arcs = $$('#arcs').val();
+     var comc = $$('#comc').val();
+     var coms = $$('#coms').val();
+     var reuc = $$('#reuc').val();
+     var reus = $$('#reus').val();
+
+     var cocherac = $$('#cocherac').val();
+     var salamaqc = $$('#salamaqc').val();
+     var salaserc = $$('#salserc').val();
+
+     var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
+     var cantarc   =  parseInt(Math.ceil(arcs/200)) * parseInt(arcc);
+     var cantcom   =  parseInt(Math.ceil(coms/200)) * parseInt(comc);
+     var cantreu   =  parseInt(Math.ceil(reus/200)) * parseInt(reuc);
+     var cantconch =  parseInt(Math.ceil(cocherac/5));
+     
+     abc5 = parseInt(cantarc) + parseInt(cantcom) + parseInt(cantconch) + parseInt(cantreu);
+     co2 = salamaqc;
+     halo = parseInt(cantgen) + parseInt(salaserc);
+
+     $$('#gendat').html(cantgen);
+     $$('#arcdat').html(cantarc);
+     $$('#comdat').html(cantcom);
+     $$('#reudat').html(cantreu);
+     
+     $$('#cocheradat').html(cantconch);
+     $$('#maqdat').html(salamaqc);
+     $$('#serdat').html(salaserc);
+     
+
+     $$('#totalABC').html(abc5);
+     $$('#totalCO2').html(co2);
+     $$('#totalHalo').html(halo);
+
+     $$('#tomadatos').hide();
+     $$('#calculos').show();  
+ });
+})
+
+$$(document).on('page:init', '.page[data-page="clinica"]', function (e) {
+      
+     debugger
+  $$('#calculos').hide();
+
+  $$('#btncalclinica').on('click',function(){
+  debugger 
+     var abc5 = 0;
+     var co2 = 0;
+     var halo = 0;
+     var ak = 0;
+
+     var genc = $$('#genc').val();
+     var gens = $$('#gens').val();
+     
+     var admc = $$('#admc').val();
+     var adms = $$('#adms').val();
+
+     var resc = $$('#resc').val();
+     var ress = $$('#ress').val();
+
+     var farc = $$('#farc').val();
+     var fars = $$('#fars').val();
+
+     var infc = $$('#infc').val();
+     var infs = $$('#infs').val();
+
+     var ropc = $$('#ropc').val();
+     var rops = $$('#rops').val();      
+
+     var hisc = $$('#hisc').val();
+     var hiss = $$('#hiss').val();
+
+     var lavc = $$('#lavc').val();
+     var lavs = $$('#lavs').val();
+
+     var comc = $$('#comc').val();
+     var coms = $$('#coms').val();
+
+     var reuc = $$('#reuc').val();
+     var reus = $$('#reus').val();
+
+     var alic = $$('#alic').val();
+     var alis = $$('#alis').val();
+
+     var cocc  = $$('#cocc').val();
+     var ecomc = $$('#ecomc').val();
+     var cocherac = $$('#cocherac').val();
+     var salamaqc = $$('#salamaqc').val();
+     var salaserc = $$('#salserc').val();
+
+     var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
+     var cantadm   =  parseInt(Math.ceil(adms/200)) * parseInt(admc);
+     var cantres   =  parseInt(Math.ceil(ress/200)) * parseInt(resc);
+     var cantfar   =  parseInt(Math.ceil(fars/200)) * parseInt(farc);
+     var cantinf   =  parseInt(Math.ceil(infs/200)) * parseInt(infc);
+     var cantrop   =  parseInt(Math.ceil(rops/200)) * parseInt(ropc);
+     var canthis   =  parseInt(Math.ceil(hiss/200)) * parseInt(hisc);
+     var cantlav   =  parseInt(Math.ceil(lavs/200)) * parseInt(lavc);
+     var cantcom   =  parseInt(Math.ceil(coms/200)) * parseInt(comc);
+     var cantreu   =  parseInt(Math.ceil(reus/200)) * parseInt(reuc);
+     var cantali   =  parseInt(Math.ceil(alis/200)) * parseInt(alic);
+     var cantconch =  parseInt(Math.ceil(cocherac/5));
+     
+     abc5 = parseInt(cantgen) + parseInt(cantres) + parseInt(cantfar) + parseInt(cantinf) + parseInt(cantrop) + parseInt(canthis) + parseInt(cantlav) + parseInt(cantcom) + parseInt(cantreu)  + parseInt(cantali)  + parseInt(cantconch);
+     co2 = salamaqc;
+     halo = parseInt(cantadm) + parseInt(ecomc) + parseInt(salaserc);
+     ak = parseInt(cocc);
+
+     $$('#gendat').html(cantgen);
+     $$('#admdat').html(cantadm);
+     $$('#resdat').html(cantres);
+     $$('#fardat').html(cantfar);
+     $$('#infdat').html(cantinf);
+     $$('#ropdat').html(cantrop);
+     $$('#hisdat').html(canthis);
+     $$('#lavdat').html(cantlav);
+     $$('#comdat').html(cantcom);
+     $$('#reudat').html(cantreu);
+     $$('#alidat').html(cantali);
+     $$('#ecomdat').html(ecomc);
+     $$('#cocdat').html(cocc);
+     
+     $$('#cocheradat').html(cantconch);
+     $$('#maqdat').html(salamaqc);
+     $$('#serdat').html(salaserc);
+     
+
+     $$('#totalABC').html(abc5);
+     $$('#totalCO2').html(co2);
+     $$('#totalHalo').html(halo);
+     $$('#totalAK').html(ak);
+
+     $$('#tomadatos').hide();
+     $$('#calculos').show();  
+ });
+})
+
+$$(document).on('page:init', '.page[data-page="teatro"]', function (e) {
+      
+     debugger
+  $$('#calculos').hide();
+
+  $$('#btncalteatro').on('click',function(){
+  debugger 
+     var abc5 = 0;
+     var co2 = 0;
+     var halo = 0;
+     var ak = 0;
+
+     var genc = $$('#genc').val();
+     var gens = $$('#gens').val();
+     
+     var admc = $$('#admc').val();
+     var adms = $$('#adms').val();
+
+     var resc = $$('#resc').val();
+     var ress = $$('#ress').val();
+
+     var farc = $$('#farc').val();
+     var fars = $$('#fars').val();
+
+     var infc = $$('#infc').val();
+     var infs = $$('#infs').val();
+
+     var ropc = $$('#ropc').val();
+     var rops = $$('#rops').val();      
+
+     var hisc = $$('#hisc').val();
+     var hiss = $$('#hiss').val();
+
+     var cocc  = $$('#cocc').val();
+     var cocherac = $$('#cocherac').val();
+     var salamaqc = $$('#salamaqc').val();
+     
+     var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
+     var cantadm   =  parseInt(Math.ceil(adms/200)) * parseInt(admc);
+     var cantres   =  parseInt(Math.ceil(ress/200)) * parseInt(resc);
+     var cantfar   =  parseInt(Math.ceil(fars/200)) * parseInt(farc);
+     var cantinf   =  parseInt(Math.ceil(infs/200)) * parseInt(infc);
+     var cantrop   =  parseInt(Math.ceil(rops/200)) * parseInt(ropc);
+     var canthis   =  parseInt(Math.ceil(hiss/200)) * parseInt(hisc);
+     
+     var cantconch =  parseInt(Math.ceil(cocherac/5));
+     
+     abc5 = parseInt(cantgen) + parseInt(cantres) + parseInt(cantfar) + parseInt(cantinf) + parseInt(cantrop) + parseInt(canthis)  + parseInt(cantconch);
+     co2 = salamaqc;
+     halo = parseInt(cantadm);
+     ak = parseInt(cocc);
+
+     $$('#gendat').html(cantgen);
+     $$('#admdat').html(cantadm);
+     $$('#resdat').html(cantres);
+     $$('#fardat').html(cantfar);
+     $$('#infdat').html(cantinf);
+     $$('#ropdat').html(cantrop);
+     $$('#hisdat').html(canthis);
+     $$('#cocdat').html(cocc);
+     
+     $$('#cocheradat').html(cantconch);
+     $$('#maqdat').html(salamaqc); 
+
+     $$('#totalABC').html(abc5);
+     $$('#totalCO2').html(co2);
+     $$('#totalHalo').html(halo);
+     $$('#totalAK').html(ak);
+
+     $$('#tomadatos').hide();
+     $$('#calculos').show();  
+ });
+})
+
+$$(document).on('page:init', '.page[data-page="bares"]', function (e) {
+      
+     debugger
+  $$('#calculos').hide();
+
+  $$('#btncalbares').on('click',function(){
+  debugger 
+     var abc5 = 0;
+     var co2 = 0;
+     var halo = 0;
+     var ak = 0;
+
+     var genc = $$('#genc').val();
+     var gens = $$('#gens').val();
+     
+     var admc = $$('#admc').val();
+     var adms = $$('#adms').val();
+
+     var resc = $$('#resc').val();
+     var ress = $$('#ress').val();
+
+     var cocc  = $$('#cocc').val();
+     var cocherac = $$('#cocherac').val();
+     var salamaqc = $$('#salamaqc').val();
+     
+     var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
+     var cantadm   =  parseInt(Math.ceil(adms/200)) * parseInt(admc);
+     var cantres   =  parseInt(Math.ceil(ress/200)) * parseInt(resc);
+     
+     var cantconch =  parseInt(Math.ceil(cocherac/5));
+     
+     abc5 = parseInt(cantgen) + parseInt(cantadm) + parseInt(cantres) + parseInt(cantconch);
+     co2 = salamaqc;
+     ak = parseInt(cocc);
+
+     $$('#gendat').html(cantgen);
+     $$('#admdat').html(cantadm);
+     $$('#resdat').html(cantres);
+     $$('#cocdat').html(cocc);
+     
+     $$('#cocheradat').html(cantconch);
+     $$('#maqdat').html(salamaqc); 
+
+     $$('#totalABC').html(abc5);
+     $$('#totalCO2').html(co2);
+     $$('#totalAK').html(ak);
+
+     $$('#tomadatos').hide();
+     $$('#calculos').show();  
+ });
+})
+
+$$(document).on('page:init', '.page[data-page="colegio"]', function (e) {
+      
+  $$('#calculos').hide();
+
+  $$('#btncalcolegio').on('click',function(){
+  debugger 
+     var abc5 = 0;
+     var co2 = 0;
+     var halo = 0;
+     var ak = 0;
+
+     var genc = $$('#genc').val();
+     var gens = $$('#gens').val();
+     
+     var admc = $$('#admc').val();
+     var adms = $$('#adms').val();
+
+     var resc = $$('#resc').val();
+     var ress = $$('#ress').val();
+
+     var farc = $$('#farc').val();
+     var fars = $$('#fars').val();
+
+     var infc = $$('#infc').val();
+     var infs = $$('#infs').val();
+
+     var ropc = $$('#ropc').val();
+     var rops = $$('#rops').val();      
+
+     var hisc = $$('#hisc').val();
+     var hiss = $$('#hiss').val();
+
+     var lavc = $$('#lavc').val();
+     var lavs = $$('#lavs').val();
+
+     var comc = $$('#comc').val();
+     var coms = $$('#coms').val();
+
+     var cocc  = $$('#cocc').val();
+     var cocherac = $$('#cocherac').val();
+     var salamaqc = $$('#salamaqc').val();
+     
+     var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
+     var cantadm   =  parseInt(Math.ceil(adms/200)) * parseInt(admc);
+     var cantres   =  parseInt(Math.ceil(ress/200)) * parseInt(resc);
+     var cantfar   =  parseInt(Math.ceil(fars/200)) * parseInt(farc);
+     var cantinf   =  parseInt(Math.ceil(infs/200)) * parseInt(infc);
+     var cantrop   =  parseInt(Math.ceil(rops/200)) * parseInt(ropc);
+     var canthis   =  parseInt(Math.ceil(hiss/200)) * parseInt(hisc);
+     var cantlav   =  parseInt(Math.ceil(lavs/200)) * parseInt(lavc);
+     var cantcom   =  parseInt(Math.ceil(coms/200)) * parseInt(comc);
+     
+     var cantconch =  parseInt(Math.ceil(cocherac/5));
+     
+     abc5 = parseInt(cantgen) + parseInt(cantadm) + parseInt(cantres) + parseInt(cantfar) + parseInt(cantinf) + parseInt(cantrop) + parseInt(canthis) + parseInt(cantlav)  + parseInt(cantconch);
+     co2 = salamaqc;
+     halo = parseInt(cantcom);
+     ak = parseInt(cocc);
+
+     $$('#gendat').html(cantgen);
+     $$('#admdat').html(cantadm);
+     $$('#resdat').html(cantres);
+     $$('#fardat').html(cantfar);
+     $$('#infdat').html(cantinf);
+     $$('#ropdat').html(cantrop);
+     $$('#hisdat').html(canthis);
+     $$('#lavdat').html(cantlav);
+     $$('#equdat').html(cantcom);
+     
+     $$('#cocdat').html(cocc);
+     $$('#cocheradat').html(cantconch);
+     $$('#maqdat').html(salamaqc);
+     
+
+     $$('#totalABC').html(abc5);
+     $$('#totalCO2').html(co2);
+     $$('#totalHalo').html(halo);
+     $$('#totalAK').html(ak);
+
+     $$('#tomadatos').hide();
+     $$('#calculos').show();  
+ });
+})
+
+$$(document).on('page:init', '.page[data-page="comercio"]', function (e) {
+      
+  $$('#calculos').hide();
+
+  $$('#btncalcomercio').on('click',function(){
+     var abc5 = 0;
+     var co2 = 0;
+     var halo = 0;
+
+     var pisoc = $$('#pisoc').val();
+     var pisos = $$('#pisos').val();
+     var sumc = $$('#sumc').val();
+     var sums = $$('#sums').val();
+     var cocherac = $$('#cocherac').val();
+     var salamaqc = $$('#salamaqc').val();
+     var gasc = $$('#gasc').val();
+
+     var cantpiso  = parseInt(Math.ceil(pisos/200))  * parseInt(pisoc);
+     var cantsum   =  parseInt(Math.ceil(sums/200)) * parseInt(sumc);
+     var cantconch = parseInt(Math.ceil(cocherac/5));
+     
+     abc5 = parseInt(cantpiso) + parseInt(cantsum) + parseInt(cantconch);
+     co2 = salamaqc;
+     halo = parseInt(gasc);
+
+     $$('#pisodat').html(cantpiso);
+     $$('#sumdat').html(cantsum);
+     $$('#cochdat').html(cantconch);
+     $$('#salamaqdat').html(salamaqc);
+     $$('#gasdat').html(gasc);
+     $$('#totalABC').html(abc5);
+     $$('#totalCO2').html(co2);
+     $$('#totalHalo').html(halo);
+
+     $$('#tomadatos').hide();
+     $$('#calculos').show();  
+ });
+})
+
 $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
             
             debugger

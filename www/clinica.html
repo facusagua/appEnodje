@@ -1,0 +1,237 @@
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">Services</div>
+  </div>
+</div>
+<div class="pages">
+  <div data-page="clinica" class="page">
+    <div class="page-content">
+      <div class="content-block" style="text-align: center;">
+        <h2>UBICACIÓN Y DOTACIÓN</h2>
+        <div class="row">
+          <div class="col-100">
+              <p>Clinicas/ Hospitales</p>
+          </div>
+        </div>
+      </div>
+      <div id="tomadatos" class="list-block media-list">
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th class="label-cell">Ubicación</th>
+                <th class="numeric-cell">Cant.</th>
+                <th class="numeric-cell">Sup.m2.</th>
+              </tr>
+            </thead>
+            <tbody>
+             <tr>
+                <td class="label-cell">Areas Generales</td>
+                <td class="numeric-cell"><input type="text" id="genc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="gens" style="text-align: right;" value="0"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Administración</td>
+                <td class="numeric-cell"><input type="text" id="admc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="adms" style="text-align: right;" value="0"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Cuarto Residuos</td>
+                <td class="numeric-cell"><input type="text" id="resc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="ress" style="text-align: right;" value="0"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Dep. Farmacia</td>
+                <td class="numeric-cell"><input type="text" id="farc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="fars" style="text-align: right;" value="0"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Dep. Inflamables</td>
+                <td class="numeric-cell"><input type="text" id="infc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="infs" style="text-align: right;" value="0"></td>
+              </tr>
+               <tr>
+                <td class="label-cell">Dep. Ropa Cama</td>
+                <td class="numeric-cell"><input type="text" id="ropc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="rops" style="text-align: right;" value="0"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Archivo H. Clínicas</td>
+                <td class="numeric-cell"><input type="text" id="hisc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="hiss" style="text-align: right;" value="0"></td>
+              </tr>
+               <tr>
+                <td class="label-cell">Lavandería</td>
+                <td class="numeric-cell"><input type="text" id="lavc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="lavs" style="text-align: right;" value="0"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Comedor</td>
+                <td class="numeric-cell"><input type="text" id="comc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="coms" style="text-align: right;" value="0"></td>
+              </tr>
+               <tr>
+                <td class="label-cell">Sala Reuniones</td>
+                <td class="numeric-cell"><input type="text" id="reuc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="reus" style="text-align: right;" value="0"></td>
+              </tr>
+               <tr>
+                <td class="label-cell">Dep. Alimentos</td>
+                <td class="numeric-cell"><input type="text" id="alic" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"><input type="text" id="alis" style="text-align: right;" value="0"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Cocina</td>
+                <td class="numeric-cell"><input type="text" id="cocc" style="text-align: right;" value="0"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Equipamiento Complejidad</td>
+                <td class="numeric-cell"><input type="text" id="ecomc" style="text-align: right;" value="0"></td>
+              </tr>
+               <tr>
+                <td class="label-cell">Sala Máquinas</td>
+                <td class="numeric-cell"><input type="text" id="salamaqc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"></td>
+              </tr> 
+              <tr>
+                <td class="label-cell">Sala Servidores</td>
+                <td class="numeric-cell"><input type="text" id="salserc" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"></td>
+              </tr>
+               <tr>
+                <td class="label-cell">Cochera</td>
+                <td class="numeric-cell"><input type="text" id="cocherac" style="text-align: right;" value="0"></td>
+                <td class="numeric-cell"></td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="" id="btncalclinica" class="button button-fill button-raised color-blue">Calcular</a>
+        </div>
+      </div>
+      <div id="calculos" class="list-block media-list">
+        <div class="data-table">
+          <table>
+            <thead style="background-color: #f44336; color: white;">
+              <tr>
+                <th class="label-cell">Tipo</th>
+                <th class="numeric-cell">Cant.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="label-cell">ABC x 5KG</td>
+                <td class="numeric-cell" id="totalABC"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">CO2 x 5KG</td>
+                <td class="numeric-cell" id="totalCO2"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Halogenado x 5KG</td>
+                <td class="numeric-cell" id="totalHalo"></td>
+              </tr>
+              <tr>
+                <td class="label-cell">AK x 6Lts</td>
+                <td class="numeric-cell" id="totalAK"></td>
+              </tr>
+            </tbody>
+          </table>
+          <hr>
+          <table>
+            <thead style="background-color: #4caf50; color: white;">
+              <tr>
+                <th class="label-cell">Ubicación</th>
+                <th class="numeric-cell">Cant.</th>
+                <th class="numeric-cell">Tipo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="label-cell">Areas Generales</td>
+                <td class="numeric-cell" id="gendat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Administración</td>
+                <td class="numeric-cell" id="admindat"></td>
+                <td class="numeric-cell">Halogenado x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Cuarto Residuos</td>
+                <td class="numeric-cell" id="resdat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Dep. Farmacia</td>
+                <td class="numeric-cell" id="fardat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Dep. Ropa</td>
+                <td class="numeric-cell" id="ropdat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Dep. Inflamables</td>
+                <td class="numeric-cell" id="infdat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Arch. H. Clínicas</td>
+                <td class="numeric-cell" id="hisdat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Lavandería</td>
+                <td class="numeric-cell" id="lavdat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Equipamiento Complejidad</td>
+                <td class="numeric-cell" id="equdat"></td>
+                <td class="numeric-cell">Halogenado x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Sector Máquinas</td>
+                <td class="numeric-cell" id="maqdat"></td>
+                <td class="numeric-cell">CO2 x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Comedor</td>
+                <td class="numeric-cell" id="comdat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Cocina</td>
+                <td class="numeric-cell" id="cocdat"></td>
+                <td class="numeric-cell">AK x 6Lts</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Sala Reuniones</td>
+                <td class="numeric-cell" id="reudat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Dep. Alimentos</td>
+                <td class="numeric-cell" id="alidat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Sala Servidores</td>
+                <td class="numeric-cell" id="serdat"></td>
+                <td class="numeric-cell">Halogenado x 5KG</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Cochera</td>
+                <td class="numeric-cell" id="cocheradat"></td>
+                <td class="numeric-cell">ABC x 5KG</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>     
+    </div>
+  </div>
+</div>
