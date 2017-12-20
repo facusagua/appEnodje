@@ -19,6 +19,20 @@
         margin-top: 10px;
       }
     </style>
+    <script type="text/javascript" charset="utf-8">
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+    function onDeviceReady() {
+        // Register the event listener
+        document.addEventListener("backbutton", onBackKeyDown, false);
+    }
+    function onBackKeyDown() {
+      debugger;
+      $$('#btnBack').click();
+    }
+
+    </script>
    
   </head>
   <body class="layout-white"> 
@@ -39,7 +53,7 @@
         <div class="toolbar toolbar-bottom">
           <div id="menuinf" class="toolbar-inner">
              <div class="left">
-                <a href="#" class="back link"><i class="material-icons" >&#xE5C4;</i></a>
+                <a id="btnBack" href="#" class="back link"><i class="material-icons" >&#xE5C4;</i></a>
               </div> 
           </div>
         </div>
