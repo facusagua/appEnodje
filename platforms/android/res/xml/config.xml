@@ -19,9 +19,6 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <config-file parent="/manifest" platform="android">
-        <application android:debuggable="false" />
-    </config-file>
     <allow-intent href="market:*" />
     <icon qualifier="ldpi" src="res/icon/android/icon-36-ldpi.png" />
     <icon qualifier="mdpi" src="res/icon/android/icon-48-mdpi.png" />
