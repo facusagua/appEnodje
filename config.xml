@@ -36,10 +36,9 @@
         <splash src="res/screen/android/drawable-port-xxhdpi-screen.png" qualifier="port-xxhdpi"/>
         <splash src="res/screen/android/drawable-port-xxxhdpi-screen.png" qualifier="port-xxxhdpi"/>
     </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
+    <config-file platform="android" parent="/manifest">
+         <application android:debuggable="false" />
+    </config-file>
     
     <engine name="android" spec="~6.3.0" />
     

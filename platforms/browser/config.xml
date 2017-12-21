@@ -15,4 +15,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <config-file parent="/manifest" platform="android">
+        <application android:debuggable="false" />
+    </config-file>
 </widget>

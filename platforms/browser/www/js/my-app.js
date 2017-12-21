@@ -6,7 +6,7 @@ var myApp = new Framework7(
 	{
 	material: true,
 	materialPageLoadDelay: 2,
-	animatePages: false,
+	animatePages: true,
 	smartSelectSearchbar:true
 });
 

@@ -24,8 +24,8 @@
         document.addEventListener("deviceready", onDeviceReady, false);
     }
     function onDeviceReady() {
-        // Register the event listener
-        document.addEventListener("backbutton", onBackKeyDown, false);
+      debugger;
+        navigator.splashscreen.show();
     }
     function onBackKeyDown() {
       debugger;
@@ -37,6 +37,12 @@
   </head>
   <body class="layout-white"> 
     <!-- Views-->
+    <a id="" href="">
+      <div class="login-screen modal-in" style="background-image: url('img/screen.png');background-size: 100%;">
+        <br>
+        <p><a href="#" class="close-login-screen button button-fill button-raised color-red">Comenzar</a></p>
+      </div>
+    </a>
     <div class="views theme-red">
       
       <!-- Right view, it is main view-->

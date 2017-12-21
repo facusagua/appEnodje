@@ -19,18 +19,25 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <config-file parent="/manifest" platform="android">
+        <application android:debuggable="false" />
+    </config-file>
     <allow-intent href="market:*" />
     <icon qualifier="ldpi" src="res/icon/android/icon-36-ldpi.png" />
     <icon qualifier="mdpi" src="res/icon/android/icon-48-mdpi.png" />
     <icon qualifier="hdpi" src="res/icon/android/icon-72-hdpi.png" />
     <icon qualifier="xhdpi" src="res/icon/android/icon-96-xhdpi.png" />
-    <splash qualifier="land-ldpi" src="res/screen/android/screen-hdpi-landscape.png" />
-    <splash qualifier="land-mdpi" src="res/screen/android/screen-hdpi-portrait.png" />
-    <splash qualifier="land-hdpi" src="res/screen/android/screen-ldpi-landscape.png" />
-    <splash qualifier="land-xhdpi" src="res/screen/android/screen-ldpi-portrait.png" />
-    <splash qualifier="land-xxhdpi" src="res/screen/android/screen-mdpi-landscape.png" />
-    <splash qualifier="land-xxxhdpi" src="res/screen/android/screen-mdpi-portrait.png" />
-    <splash qualifier="port-ldpi" src="res/screen/android/screen-xhdpi-landscape.png" />
-    <splash qualifier="port-mdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
+    <splash qualifier="land-ldpi" src="res/screen/android/drawable-land-ldpi-screen.png" />
+    <splash qualifier="land-mdpi" src="res/screen/android/drawable-land-mdpi-screen.png" />
+    <splash qualifier="land-hdpi" src="res/screen/android/drawable-land-hdpi-screen.png" />
+    <splash qualifier="land-xhdpi" src="res/screen/android/drawable-land-xhdpi-screen.png" />
+    <splash qualifier="land-xxhdpi" src="res/screen/android/drawable-land-xxhdpi-screen.png" />
+    <splash qualifier="land-xxxhdpi" src="res/screen/android/drawable-land-xxxhdpi-screen.png" />
+    <splash qualifier="port-ldpi" src="res/screen/android/drawable-port-ldpi-screen.png" />
+    <splash qualifier="port-mdpi" src="res/screen/android/drawable-port-mdpi-screen.png" />
+    <splash qualifier="port-hdpi" src="res/screen/android/drawable-port-hdpi-screen.png" />
+    <splash qualifier="port-xhdpi" src="res/screen/android/drawable-port-xhdpi-screen.png" />
+    <splash qualifier="port-xxhdpi" src="res/screen/android/drawable-port-xxhdpi-screen.png" />
+    <splash qualifier="port-xxxhdpi" src="res/screen/android/drawable-port-xxxhdpi-screen.png" />
     <preference name="loglevel" value="DEBUG" />
 </widget>
