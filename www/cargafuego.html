@@ -1,6 +1,6 @@
 <div class="pages">
   <div data-page="cargafuego" class="page">
-    <div class="page-content">
+    <div id="datoscalculofuego" class="page-content">
       <div class="content-block" style="text-align: center;">
         <h2>Calculo de Carga de Fuego</h2>
         <p>Indique los mts2 que posee la superficie que desee proteger contra incendios</p>
@@ -12,7 +12,7 @@
               <div class="item-content">
                 <div class="item-inner">
                   <div class="item-input">
-                    <input type="text" name="superficie" placeholder="Superficie en mts2">
+                    <input type="number" id="superficieFuego" name="superficie" placeholder="Superficie en mts2">
                   </div>
                 </div>
               </div>
@@ -22,7 +22,7 @@
     </div> 
     <div class="row">
           <div class="col-50">
-            <a href="#" id="add-materiales" class="button button-fill button-raised open-login-screen">+ Materiales</a> 
+            <a href="#" id="add-materiales" class="button button-fill button-raised open-picker color-green">+ Materiales</a> 
           </div>
           <div class="col-50">
             <a href="#" id="btnCalcular" class="button button-fill button-raised">Calcular</a>  
@@ -37,53 +37,185 @@
     </ul>
   </div>
   </div>
-
-    <div class="login-screen">
-        <div class="navbar theme-red">
-            <div class="navbar-inner">
-                <div class="center">
-                  <h2>Materiales</h2> 
-                </div>
-                
-            </div>
-        </div>
-        <div class="page-content login-screen-content">
-          <form id="materiales-form" class="list-block store-data">
-            <div class="list-block">
-              <ul>
-                <li class="item-content">
-                  <div class="item-inner">
-                    <div class="item-title label">Materiales</div>
-                    <div class="item-input">
-                      <select name="nombremat" placeholder="Materiales">
-                        <option value="Papel">Papel</option>
-                        <option value="Aceite">Aceite</option>
-                        <option value="Alcohol">Alcohol</option>
+<div class="picker-modal picker-info">
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="left"><a href="#" class="close-picker" style="color: white;">  Cerrar</a></div>
+        <div class="right"><a href="#" class="close-picker">X</a></div>
+      </div>
+    </div>  
+<div class="picker-modal-inner">
+      <div class="content-block">
+        <form id="materiales-form" class="list-block store-data">
+          <div class="row">
+            <div class="col-50">
+              <div class="list-block"  style="margin-top: 5px;">
+                <div class="item-input">
+                      <select id="valmat" name="valmat" placeholder="Materiales">
+                        <option value="">Seleccione Material</option>
+                        <option value="A" data-poder="7000">Acumuladores de auto (batería)</option>
+                        <option value="B" data-poder="7000">Aceites</option>
+                        <option value="B" data-poder="7000">Acetaldheído</option>
+                        <option value="B" data-poder="7000">Acetamida</option>
+                        <option value="B" data-poder="7000">Acetato de Amilo</option>
+                        <option value="B" data-poder="7000">Acetona</option>
+                        <option value="B" data-poder="12000">Acetileno</option>
+                        <option value="B" data-poder="7000">Acido acético</option>
+                        <option value="B" data-poder="7000">Acido benzcico</option>
+                        <option value="B" data-poder="7000">Acido cítric</option>
+                        <option value="B" data-poder="7000">Acrolaína</option>
+                        <option value="B" data-poder="7000">Albúmina vegetal</option>
+                        <option value="B" data-poder="7000">Alcohol amílico</option>
+                        <option value="B" data-poder="7000">Alcohol etílico</option>
+                        <option value="A" data-poder="7000">Algodón</option>
+                        <option value="B" data-poder="7000">Almidón </option>
+                        <option value="B" data-poder="7000">Anilina</option>
+                        <option value="A" data-poder="7000">Antraceno</option>
+                        <option value="A" data-poder="7000">Antracita </option>
+                        <option value="B" data-poder="7000">Blanco de ballena</option>
+                        <option value="B" data-poder="7000">Bencilo</option>
+                        <option value="B" data-poder="7000">Bencina</option>
+                        <option value="B" data-poder="7000">Benzol</option>
+                        <option value="A" data-poder="7000">Bobina de cable por metro </option>
+                        <option value="B" data-poder="7000">Butano</option>
+                        <option value="B" data-poder="7000">Butanol</option>
+                        <option value="A" data-poder="7000">Cable 4 x 25 m2 con aislación</option>
+                        <option value="A" data-poder="7000">Cable por metro</option>
+                        <option value="A" data-poder="7000">Cacao en polvo </option>
+                        <option value="A" data-poder="7000">Café </option>
+                        <option value="A" data-poder="7000">Calcio</option>
+                        <option value="A" data-poder="7000">Caucho</option>
+                        <option value="A" data-poder="7000">Carbono</option>
+                        <option value="A" data-poder="7000">Carburo de alúmina</option>
+                        <option value="A" data-poder="7000">Carburo de Calcio 80%</option>
+                        <option value="A" data-poder="7000">Cartón</option>
+                        <option value="A" data-poder="7000">Cartón impregnado</option>
+                        <option value="A" data-poder="7000">Celuloida</option>
+                        <option value="A" data-poder="7000">Cereales</option>
+                        <option value="A" data-poder="7000">Carbón de madera </option>
+                        <option value="A" data-poder="7000">Cloruro de policinilo P.V.C.</option>
+                        <option value="A" data-poder="7000">Chocolate </option>
+                        <option value="A" data-poder="7000">Corcho</option>
+                        <option value="A" data-poder="7000">Cresol</option>
+                        <option value="A" data-poder="7000">Cuero</option>
+                        <option value="B" data-poder="7000">Cidoexanol</option>
+                        <option value="B" data-poder="7000">Cicloexano</option>
+                        <option value="B" data-poder="7000">Dietilamina</option>
+                        <option value="B" data-poder="7000">Dietilcetona </option>
+                        <option value="B" data-poder="7000">Dipentano</option>
+                        <option value="B" data-poder="7000">Difenil</option>
+                        <option value="B" data-poder="7000">Epocita</option>
+                        <option value="B" data-poder="7000">Espíritu de vino</option>
+                        <option value="B" data-poder="7000">Etano</option>
+                        <option value="B" data-poder="7000">Estearina</option>
+                        <option value="B" data-poder="7000">Eter amílico</option>
+                        <option value="B" data-poder="7000">Eter etilénico</option>
+                        <option value="B" data-poder="7000">Extracto de malta</option>
+                        <option value="B" data-poder="7000">Fenil</option>
+                        <option value="A" data-poder="7000">Fibras naturales</option>
+                        <option value="A" data-poder="7000">Fibras de fafia</option>
+                        <option value="B" data-poder="7000">Fósforo</option>
+                        <option value="B" data-poder="7000">Gasoil</option>
+                        <option value="B" data-poder="7000">Glicerina</option>
+                        <option value="B" data-poder="7000">Grasas</option>  
+                        <option value="A" data-poder="7000">Harina</option>
+                        <option value="B" data-poder="7000">Heptano</option>
+                        <option value="B" data-poder="7000">Hametileno</option>
+                        <option value="B" data-poder="7000">Hexano</option>
+                        <option value="A" data-poder="7000">Hulla</option>
+                        <option value="B" data-poder="7000">Hidrógeno</option>
+                        <option value="B" data-poder="7000">Hidruro de magnesio</option>
+                        <option value="A" data-poder="7000">Leche en polvo</option>
+                        <option value="A" data-poder="7000">Lana comprimida</option>
+                        <option value="A" data-poder="7000">Lino</option>
+                        <option value="A" data-poder="7000">Libros y carpetas</option>
+                        <option value="A" data-poder="7000">Magnesio</option>
+                        <option value="A" data-poder="7000">Malta, maíz</option>
+                        <option value="A" data-poder="7000">Maderas</option>
+                        <option value="A" data-poder="7000">Materiales sintéticos</option>
+                        <option value="B" data-poder="7000">Metano</option>
+                        <option value="B" data-poder="7000">Matanol</option>
+                        <option value="B" data-poder="7000">Monóxido de carbono</option>
+                        <option value="A" data-poder="7000">Nueces, avellanas</option>
+                        <option value="B" data-poder="7000">Octano</option>
+                        <option value="A" data-poder="7000">Paja</option>
+                        <option value="A" data-poder="7000">Paneles de madera</option>
+                        <option value="A" data-poder="7000">Pentano</option>
+                        <option value="A" data-poder="7000">Papel</option>
+                        <option value="B" data-poder="7000">Parafina</option>
+                        <option value="B" data-poder="7000">Petróleo</option>
+                        <option value="A" data-poder="7000">Pescado seco</option>
+                        <option value="A" data-poder="7000">Poliamida</option>
+                        <option value="A" data-poder="7000">Policarbonato</option>
+                        <option value="A" data-poder="7000">Poliester</option>
+                        <option value="A" data-poder="7000">Polietileno</option>
+                        <option value="A" data-poder="7000">Poliuretano</option>
+                        <option value="A" data-poder="7000">Polivinilo acetato</option>
+                        <option value="B" data-poder="7000">Propano</option>
+                        <option value="A" data-poder="7000">P.V.C.</option>
+                        <option value="A" data-poder="7000">Resinas</option>
+                        <option value="A" data-poder="7000">Resinas sintéticas</option>
+                        <option value="A" data-poder="7000">Resina de urea</option>
+                        <option value="B" data-poder="7000">Sodio</option>
+                        <option value="B" data-poder="7000">Sulfuro de carbono</option>
+                        <option value="A" data-poder="7000">Tabaco</option>
+                        <option value="B" data-poder="7000">Tetranidrobenzol</option>
+                        <option value="A" data-poder="7000">Te</option>
+                        <option value="B" data-poder="7000">Tuluol</option>
+                        <option value="A" data-poder="7000">Turba</option>
+                        <option value="B" data-poder="7000">Urea</option>
+                        <option value="A" data-poder="7000">Vestimentas</option>
                       </select>
                     </div>
-                  </div>
-                </li>
-                <li class="item-content">
-                  <div class="item-inner">
-                    <div class="item-title label">Cantidad</div>
-                    <div class="item-input">
-                      <input type="text" name="cantidadmat" placeholder="Cantidad">
-                    </div>
-                  </div>
-                </li>
-              </ul>
+                </div>    
             </div>
-            <div class="list-block">
+            <div class="col-50">
+                <div class="list-block"  style="margin-top: 5px;">
+                  <ul>
+                    <li class="item-content">
+                        <div class="item-inner">
+                          <div class="item-input">
+                            <input type="number" name="cantidadmat" placeholder="Peso Kg">
+                            <input type="hidden" id="nombremat" name="nombremat">
+                            <input type="hidden" id="podermat" name="podermat">
+                          </div>
+                        </div>
+                      </li>
+                  </ul>   
+                 </div>
+            </div>
+            <div class="col-100">
+            <div class="list-block" style="margin-top: 0px;">
               <ul>
-                <li><a href="#" id="btnAgregarMat" class="button button-fill button-raised ">Agregar</a></li>
+                 <li><a href="#" id="btnAgregarMat" class="button button-fill button-raised ">Agregar</a></li>
               </ul>
-              <div class="list-block-label">
-                <p><a href="#" class="close-login-screen">X</a></p>
-              </div>
             </div>
-          </form>
+            </div>
+          </div>  
+        </form>
+      </div>
+     </div>
+     </div>
+    </div>
+
+
+    <div id="informecalculofuego" class="page-content">
+      <div class="content-block" style="text-align: center;">
+        <h2 style="color: green;">Calculo de Carga de Fuego</h2>
+        <p id="superficiefuego"></p>
+        <div class="content-block-title" style="color: red;">Carga de fuego A</div>
+          <div class="list-block">
+            <ul id="cargaA"></ul>
+            <li id="total_cargaA" class="list-group-title" style="float:right;"></li>
+          </div>
+         <br> 
+         <div class="content-block-title" style="color: red;">Carga de fuego B</div>
+          <div class="list-block">
+            <ul id="cargaB"></ul>
+            <li id="total_cargaB" class="list-group-title" style="float:right;"></li>
+          </div> 
         </div>
-  </div>
+      </div>
     </div>   
   </div>
 </div>

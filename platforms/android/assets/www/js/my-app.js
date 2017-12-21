@@ -25,20 +25,32 @@ $$(document).on('page:init', '.page[data-page="cargafuego"]', function (e) {
    
    storedData = new Array();
    $$("#cfuego")[0].reset();
-   
+   $$('#informecalculofuego').hide();
+   $$('#valmat').on('change',function(){
+      debugger
+      var nombre = $('#valmat option:selected').html();
+      var poder = $('#valmat option:selected').data("poder");
+      console.log(poder);
+      $$('#nombremat').val(nombre);
+      $$('#podermat').val(poder);
+   });
+
    $$('#add-materiales').on('click',function(){
       $$("#materiales-form")[0].reset();
-      myApp.openModal();
+      myApp.pickerModal('.picker-info');
    });
 
    $$('#btnAgregarMat').on('click',function(){ 
      $$('#lista-materiales').html("");
       myApp.closeModal();
+      console.log(storedData);
       storedData.push(myApp.formGetData('materiales-form'));
       if(storedData) {
         storedData.forEach(function (elemento, indice, array) {
            $$('#lista-materiales').append('<li class="swipeout"><div class="swipeout-content item-content">'+
-            '<div class="item-media">'+elemento.nombremat+'</div><div class="item-inner">'+elemento.cantidadmat+
+            '<div class="col-60"><div class="item-media">'+ elemento.nombremat+' ('+elemento.valmat+')</div></div>'+
+            '<div class="col-20"><div class="item-inner">'+elemento.podermat+ 'KC/Kg</div></div>'+
+            '<div class="col-20"><div class="item-inner">'+elemento.cantidadmat+ 'Kg.</div>'+
             '</div></div><div class="swipeout-actions-right">'+
             '<a href="#" class="swipeout-delete" data-confirm="Desea Eliminar este material?"'+
             'data-confirm-title="Delete?">Delete</a></div></li>');          
@@ -50,6 +62,61 @@ $$(document).on('page:init', '.page[data-page="cargafuego"]', function (e) {
    });
 
    $$('#btnCalcular').on('click',function(){
+      debugger
+      var superficie = $$('#superficieFuego').val();
+      console.log(superficie);
+      if(superficie != "" && storedData.length > 0){
+      $$('#datoscalculofuego').hide();
+      var poderCalTorA = 0;
+      var poderCalTorB = 0;
+      if(storedData) {
+        storedData.forEach(function (elemento, indice, array) {
+          if(elemento.valmat == "A"){
+           poderCalTorA += parseInt(elemento.cantidadmat) * parseInt(elemento.podermat);  
+           $$('#cargaA').append('<li class="item-content">'+
+                '<div class="item-inner">'+
+                  '<div class="item-title">'+ elemento.nombremat +'</div>'+
+                  '<div class="item-after">'+elemento.cantidadmat+ 'Kg.</div>'+
+                '</div>'+
+              '</li>');
+           console.log(poderCalTorB);
+           }
+           else{
+            poderCalTorB += parseInt(elemento.cantidadmat) * parseInt(elemento.podermat);  
+            $$('#cargaB').append('<li class="item-content">'+
+                '<div class="item-inner">'+
+                  '<div class="item-title">'+ elemento.nombremat +'</div>'+
+                  '<div class="item-after">'+elemento.cantidadmat+ 'Kg.</div>'+
+                '</div>'+
+              '</li>');
+            console.log(poderCalTorB);
+           }             
+        });
+        var total_cargaA = Math.round((poderCalTorA/parseInt(superficie))/ 4400);
+        var total_cargaB = Math.round((poderCalTorB/parseInt(superficie))/ 4400);
+        console.log(total_cargaA);
+        console.log(total_cargaB);
+        $$('#total_cargaA').html('<b> Resultado: '+total_cargaA+' Kg/m2</b>');
+        $$('#total_cargaB').html('<b> Resultado: '+total_cargaB+' Kg/m2</b>');
+        $$('#superficiefuego').html("Superficie Total: " + superficie + ' Mts2');
+      }
+      else {
+        alert('There is no stored data for this form yet. Try to change any field')
+      }
+
+      $$('#informecalculofuego').show();
+    }
+    else{
+      myApp.addNotification({
+                      message: 'Faltan Ingresar Datos',
+                      hold: 500,
+                      button: {
+                          text: '',
+                          color: 'black',
+                          close: false
+                      }
+                  });
+    }
    });
 })
 
@@ -75,16 +142,11 @@ $$(document).on('page:init', '.page[data-page="productos"]', function (e) {
                         '</div></a></li>');
                   }
                   $$('.item-compra').on('click',function(){
-                          debugger;
                            $$("#form-pedidos")[0].reset();
                            var id = $$(this).attr("id");
                            var pcarga = $$(this).data("pcarga");
                            var pventa = $$(this).data("pventa");
                            var nombre = $$(this).data("nombre");
-                           console.log(id);
-                           console.log(pcarga);
-                           console.log(pventa);
-                           console.log(nombre);
                            if(pcarga == "null"){
                               $$('#itemrecarga').hide(); 
                            }

@@ -21,7 +21,7 @@
                   <div class="item-media"><i class="material-icons">&#xE8A6;</i></div>
                   <div class="item-inner">
                     <div class="item-input">
-                      <input type="text" id="buscadni_cliente" placeholder="Ingrese su Dni">
+                      <input type="number" id="buscadni_cliente" placeholder="Ingrese su Dni">
                     </div>
                   </div>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="item-media"><i class="material-icons">&#xE8AA;</i></div>
                     <div class="item-inner">
                       <div class="item-input">
-                        <input type="text" name="dni_cliente" id="dni_cliente" placeholder="Dni" readonly>
+                        <input type="number" name="dni_cliente" id="dni_cliente" placeholder="Dni" readonly>
                       </div>
                     </div>
                   </div>
@@ -71,7 +71,7 @@
                     <div class="item-media"><i class="material-icons">&#xE0BE;</i></div>
                     <div class="item-inner">
                       <div class="item-input">
-                        <input type="email" name="email_cliente" id="email_cliente" placeholder="E-mail">
+                        <input type="email" name="email_cliente" id="email_cliente" placeholder="E-mail" required>
                       </div>
                     </div>
                   </div>
@@ -83,7 +83,7 @@
                               <div class="item-media"><i class="material-icons">&#xE551;</i></div>
                               <div class="item-inner">
                                 <div class="item-input">
-                                  <input type="email" name="ca_cliente" id="ca_cliente" placeholder="CA">
+                                  <input type="number" name="ca_cliente" id="ca_cliente" placeholder="CA">
                                 </div>
                               </div>
                             </div>
@@ -94,43 +94,59 @@
                             <div class="item-content">
                               <div class="item-inner">
                                 <div class="item-input">
-                                  <input type="email" name="tel_cliente" id="tel_cliente" placeholder="Número">
+                                  <input type="number" name="tel_cliente" id="tel_cliente" placeholder="Número">
                                 </div>
                               </div>
                             </div>
                           </li>
                       </div>
                  </div>
-                <li>
-                  <div class="item-content">
-                    <div class="item-media"><i class="material-icons">&#xE55B;</i></div>
-                    <div class="item-inner">
-                      <div class="item-input">
-                        <input type="email" name="direccion_cliente" id="direccion_cliente" placeholder="Dirección">
-                      </div>
-                    </div>
-                  </div>
-                </li>
                 <div class="row">
-                      <div class="col-50">
+                   <div class="col-50"> 
+                      <li>
+                        <div class="item-content">
+                          <div class="item-media"><i class="material-icons">&#xE55B;</i></div>
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <input type="text" name="direccion_cliente" id="direccion_cliente" placeholder="Dirección">
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                  </div>
+                  <div class="col-50">
                         <li>
                             <div class="item-content">
                               <div class="item-media"><i class="material-icons">&#xE242;</i></div>
                               <div class="item-inner">
                                 <div class="item-input">
-                                  <input type="email" name="numero_cliente" id="numero_cliente" placeholder="Número">
+                                  <input type="number" name="numero_cliente" id="numero_cliente" placeholder="Número">
                                 </div>
                               </div>
                             </div>
                           </li>
                       </div>
+                </div>  
+                <div class="row">
                       <div class="col-50">
                           <li>
                             <div class="item-content">
                               <div class="item-media"><i class="material-icons">&#xE42A;</i></div>
                               <div class="item-inner">
                                 <div class="item-input">
-                                  <input type="email" name="dpto_cliente" id="dpto_cliente" placeholder="Dpto">
+                                  <input type="number" name="dpto_cliente" id="dpto_cliente" placeholder="Dpto">
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                      </div>
+                      <div class="col-50">
+                        <li>
+                            <div class="item-content">
+                              <div class="item-media"><i class="material-icons">&#xE8EE;</i></div>
+                              <div class="item-inner">
+                                <div class="item-input">
+                                  <input type="number" name="piso_cliente" id="piso_cliente" placeholder="Piso">
                                 </div>
                               </div>
                             </div>
@@ -138,37 +154,25 @@
                       </div>
                  </div>
                  <div class="row">
-                      <div class="col-30">
-                        <li>
-                            <div class="item-content">
-                              <div class="item-media"><i class="material-icons">&#xE8EE;</i></div>
-                              <div class="item-inner">
-                                <div class="item-input">
-                                  <input type="email" name="piso_cliente" id="piso_cliente" placeholder="Piso">
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                      </div>
-                      <div class="col-30">
+                      <div class="col-50">
                           <li>
                             <div class="item-content">
                               <div class="item-media"><i class="material-icons">&#xE434;</i></div>
                               <div class="item-inner">
                                 <div class="item-input">
-                                  <input type="email" name="mzna_cliente" id="mzna_cliente" placeholder="Manzana">
+                                  <input type="text" name="mzna_cliente" id="mzna_cliente" placeholder="Manzana">
                                 </div>
                               </div>
                             </div>
                           </li>
                       </div>
-                      <div class="col-30">
+                      <div class="col-50">
                         <li>
                             <div class="item-content">
                               <div class="item-media"><i class="material-icons">&#xE406;</i></div>
                               <div class="item-inner">
                                 <div class="item-input">
-                                  <input type="email" name="lote_cliente" id="lote_cliente" placeholder="Lote">
+                                  <input type="text" name="lote_cliente" id="lote_cliente" placeholder="Lote">
                                   <input type="hidden" name="id_cliente" id="id_cliente" value="nuevo" placeholder="Lote">
                                 </div>
                               </div>
