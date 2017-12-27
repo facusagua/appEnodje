@@ -27,7 +27,6 @@ $$(document).on('page:init', '.page[data-page="cargafuego"]', function (e) {
    $$("#cfuego")[0].reset();
    $$('#informecalculofuego').hide();
    $$('#valmat').on('change',function(){
-      debugger
       var nombre = $('#valmat option:selected').html();
       var poder = $('#valmat option:selected').data("poder");
       console.log(poder);
@@ -62,7 +61,6 @@ $$(document).on('page:init', '.page[data-page="cargafuego"]', function (e) {
    });
 
    $$('#btnCalcular').on('click',function(){
-      debugger
       var superficie = $$('#superficieFuego').val();
       console.log(superficie);
       if(superficie != "" && storedData.length > 0){
@@ -120,6 +118,20 @@ $$(document).on('page:init', '.page[data-page="cargafuego"]', function (e) {
    });
 })
 
+function NaN2Zero(n){
+    return isNaN( n ) ? 0 : n; 
+}
+
+function Null2Zero(n){
+    if( n == null ){
+      return 0;
+    }
+    else{
+      return n;
+    } 
+
+}
+
 $$(document).on('page:init', '.page[data-page="productos"]', function (e) {
 
    axios.get('http://www.enodje.e-widux.com/api/tam_productos')
@@ -128,48 +140,63 @@ $$(document).on('page:init', '.page[data-page="productos"]', function (e) {
               for(var i in response.data) {
                  var data = response.data;
                   $$('#listadoproductos').append(
-                    '<li><a href="#" id="'+data[i].id+'" data-nombre="'+data[i].nombre+'" data-pcarga="'+data[i].precio_recarga+'" data-pventa="'+data[i].precio_venta+'"  class="item-link item-content item-compra">'+
+                    '<li><a href="#" id="'+data[i].id+'" data-nombre="'+data[i].nombre+'" data-pcarga="'+Null2Zero(data[i].precio_recarga)+'" data-pventa="'+Null2Zero(data[i].precio_venta)+'"  class="item-link item-content item-compra">'+
                         '<div class="item-media"><img src="img/logo.png" width="80"/></div>'+
                         '<div class="item-inner">'+
                            '<div class="item-title-row">'+
                               '<div class="item-title"><b>'+data[i].nombre+'</b></div>'+
                               '<div class="item-after"></div>'+
                            '</div>'+
-                           '<div class="item-subtitle">Categoria: '+data[i].cod_rubro+'</div>'+
-                           '<div class="item-text">'+data[i].descripcion+'</div>'+
-                           '<div class="item-subtitle"><b>Precio Venta:</b> $'+data[i].precio_venta+'</div>'+
-                           '<div class="item-subtitle"><b>Precio Recarga:</b> $'+data[i].precio_recarga+'</div>'+
+                           '<div class="item-subtitle"><b>Precio Venta:</b> $'+Null2Zero(data[i].precio_venta)+'</div>'+
+                           '<div class="item-subtitle"><b>Precio Recarga:</b> $'+Null2Zero(data[i].precio_recarga)+'</div>'+
                         '</div></a></li>');
                   }
                   $$('.item-compra').on('click',function(){
-                           $$("#form-pedidos")[0].reset();
+                          $$("#form-pedidos")[0].reset();
                            var id = $$(this).attr("id");
                            var pcarga = $$(this).data("pcarga");
                            var pventa = $$(this).data("pventa");
                            var nombre = $$(this).data("nombre");
-                           if(pcarga == "null"){
-                              $$('#itemrecarga').hide(); 
-                           }
-                           else{
-                              $$('#itemrecarga').show(); 
-                           }
+
+                           
                            $$('#id_prod').val(id);
                            $$('#pn_prod').val(pventa);
                            $$('#pc_prod').val(pcarga);
                            $$('#nom_prod').val(nombre);
                            $$('#pf_prod').val(pventa);
+                           if(pventa == 0){
+                              $$('#itemcompra').hide();
+                              $$('#tipo_prodn').prop('checked', false);  
+                           }
+                           else{
+                              $$('#itemcompra').show();
+                              $$('#tipo_prodn').prop('checked', true);
+                              $$('#pf_prod').val(pventa); 
+                           }
+
+                           if(pcarga == 0){
+                              $$('#itemrecarga').hide();
+                              $$('#tipo_prodc').prop('checked', false); 
+                           }
+                           else{
+                              $$('#itemrecarga').show();
+                              if(pventa == 0){
+                                $$('#tipo_prodc').prop('checked', true);
+                                $$('#pf_prod').val(pcarga);
+                              }    
+                           }
                            myApp.pickerModal('.picker-info');
                   });
+
                   $$('#tipo_prodn').on('change',function(){
-                    debugger;
                       var pventa = $$('#pn_prod').val();
                       $$('#pf_prod').val(pventa);
                   });
                   $$('#tipo_prodc').on('change',function(){
-                    debugger
                       var pcarga = $$('#pc_prod').val();
                       $$('#pf_prod').val(pcarga);
                   });
+
             })
             .catch(function (error) {
                   console.log(error);
@@ -233,26 +260,26 @@ $$(document).on('page:init', '.page[data-page="carrito"]', function (e) {
       }
 })
 
+
+
 $$(document).on('page:init', '.page[data-page="ph"]', function (e) {
-      
-     debugger
+    
   $$('#calculos').hide();
 
   $$('#btncalph').on('click',function(){
-  debugger 
      var abc5 = 0;
      var co2 = 0;
 
-     var pisoc = $$('#pisoc').val();
-     var pisos = $$('#pisos').val();
-     var sumc = $$('#sumc').val();
-     var sums = $$('#sums').val();
-     var cocherac = $$('#cocherac').val();
-     var salamaqc = $$('#salamaqc').val();
-     var gasc = $$('#gasc').val();
+     var pisoc = NaN2Zero(parseInt($$('#pisoc').val()));
+     var pisos = NaN2Zero(parseInt($$('#pisos').val()));
+     var sumc = NaN2Zero(parseInt($$('#sumc').val()));
+     var sums = NaN2Zero(parseInt($$('#sums').val()));
+     var cocherac = NaN2Zero(parseInt($$('#cocherac').val()));
+     var salamaqc = NaN2Zero(parseInt($$('#salamaqc').val()));
+     var gasc = NaN2Zero(parseInt($$('#gasc').val()));
 
      var cantpiso  = parseInt(Math.ceil(pisos/200))  * parseInt(pisoc);
-     var cantsum   =  parseInt(Math.ceil(sums/200)) * parseInt(sumc);
+     var cantsum   = parseInt(Math.ceil(sums/200)) * parseInt(sumc);
      var cantconch = parseInt(Math.ceil(cocherac/5));
      
      abc5 = parseInt(cantpiso) + parseInt(cantsum) + parseInt(cantconch) + parseInt(gasc);
@@ -279,8 +306,8 @@ $$(document).on('page:init', '.page[data-page="vivienda"]', function (e) {
   $$('#btncalviv').on('click',function(){
      var abc5 = 0;
      
-     var pisos = $$('#pisos').val();
-     var cocherac = $$('#cocherac').val();
+     var pisos = NaN2Zero(parseInt($$('#pisos').val()));
+     var cocherac = NaN2Zero(parseInt($$('#cocherac').val()));
      
      var cantpiso  = parseInt(Math.ceil(pisos/200));
      var cantconch = parseInt(Math.ceil(cocherac/5));
@@ -298,27 +325,25 @@ $$(document).on('page:init', '.page[data-page="vivienda"]', function (e) {
 
 $$(document).on('page:init', '.page[data-page="oficina"]', function (e) {
       
-     debugger
   $$('#calculos').hide();
 
   $$('#btncalofi').on('click',function(){
-  debugger 
      var abc5 = 0;
      var co2 = 0;
      var halo = 0;
 
-     var genc = $$('#genc').val();
-     var gens = $$('#gens').val();
-     var arcc = $$('#arcc').val();
-     var arcs = $$('#arcs').val();
-     var comc = $$('#comc').val();
-     var coms = $$('#coms').val();
-     var reuc = $$('#reuc').val();
-     var reus = $$('#reus').val();
+     var genc = NaN2Zero(parseInt($$('#genc').val()));
+     var gens = NaN2Zero(parseInt($$('#gens').val()));
+     var arcc = NaN2Zero(parseInt($$('#arcc').val()));
+     var arcs = NaN2Zero(parseInt($$('#arcs').val()));
+     var comc = NaN2Zero(parseInt($$('#comc').val()));
+     var coms = NaN2Zero(parseInt($$('#coms').val()));
+     var reuc = NaN2Zero(parseInt($$('#reuc').val()));
+     var reus = NaN2Zero(parseInt($$('#reus').val()));
 
-     var cocherac = $$('#cocherac').val();
-     var salamaqc = $$('#salamaqc').val();
-     var salaserc = $$('#salserc').val();
+     var cocherac = NaN2Zero(parseInt($$('#cocherac').val()));
+     var salamaqc = NaN2Zero(parseInt($$('#salamaqc').val()));
+     var salaserc = NaN2Zero(parseInt($$('#salserc').val()));
 
      var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
      var cantarc   =  parseInt(Math.ceil(arcs/200)) * parseInt(arcc);
@@ -351,54 +376,52 @@ $$(document).on('page:init', '.page[data-page="oficina"]', function (e) {
 
 $$(document).on('page:init', '.page[data-page="clinica"]', function (e) {
       
-     debugger
   $$('#calculos').hide();
 
   $$('#btncalclinica').on('click',function(){
-  debugger 
      var abc5 = 0;
      var co2 = 0;
      var halo = 0;
      var ak = 0;
 
-     var genc = $$('#genc').val();
-     var gens = $$('#gens').val();
+     var genc = NaN2Zero(parseInt($$('#genc').val()));
+     var gens = NaN2Zero(parseInt($$('#gens').val()));
      
-     var admc = $$('#admc').val();
-     var adms = $$('#adms').val();
+     var admc = NaN2Zero(parseInt($$('#admc').val()));
+     var adms = NaN2Zero(parseInt($$('#adms').val()));
 
-     var resc = $$('#resc').val();
-     var ress = $$('#ress').val();
+     var resc = NaN2Zero(parseInt($$('#resc').val()));
+     var ress = NaN2Zero(parseInt($$('#ress').val()));
 
-     var farc = $$('#farc').val();
-     var fars = $$('#fars').val();
+     var farc = NaN2Zero(parseInt($$('#farc').val()));
+     var fars = NaN2Zero(parseInt($$('#fars').val()));
 
-     var infc = $$('#infc').val();
-     var infs = $$('#infs').val();
+     var infc = NaN2Zero(parseInt($$('#infc').val()));
+     var infs = NaN2Zero(parseInt($$('#infs').val()));
 
-     var ropc = $$('#ropc').val();
-     var rops = $$('#rops').val();      
+     var ropc = NaN2Zero(parseInt($$('#ropc').val()));
+     var rops = NaN2Zero(parseInt($$('#rops').val()));      
 
-     var hisc = $$('#hisc').val();
-     var hiss = $$('#hiss').val();
+     var hisc = NaN2Zero(parseInt($$('#hisc').val()));
+     var hiss = NaN2Zero(parseInt($$('#hiss').val()));
 
-     var lavc = $$('#lavc').val();
-     var lavs = $$('#lavs').val();
+     var lavc = NaN2Zero(parseInt($$('#lavc').val()));
+     var lavs = NaN2Zero(parseInt($$('#lavs').val()));
 
-     var comc = $$('#comc').val();
-     var coms = $$('#coms').val();
+     var comc = NaN2Zero(parseInt($$('#comc').val()));
+     var coms = NaN2Zero(parseInt($$('#coms').val()));
 
-     var reuc = $$('#reuc').val();
-     var reus = $$('#reus').val();
+     var reuc = NaN2Zero(parseInt($$('#reuc').val()));
+     var reus = NaN2Zero(parseInt($$('#reus').val()));
 
-     var alic = $$('#alic').val();
-     var alis = $$('#alis').val();
+     var alic = NaN2Zero(parseInt($$('#alic').val()));
+     var alis = NaN2Zero(parseInt($$('#alis').val()));
 
-     var cocc  = $$('#cocc').val();
-     var ecomc = $$('#ecomc').val();
-     var cocherac = $$('#cocherac').val();
-     var salamaqc = $$('#salamaqc').val();
-     var salaserc = $$('#salserc').val();
+     var cocc  = NaN2Zero(parseInt($$('#cocc').val()));
+     var ecomc = NaN2Zero(parseInt($$('#ecomc').val()));
+     var cocherac = NaN2Zero(parseInt($$('#cocherac').val()));
+     var salamaqc = NaN2Zero(parseInt($$('#salamaqc').val()));
+     var salaserc = NaN2Zero(parseInt($$('#salserc').val()));
 
      var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
      var cantadm   =  parseInt(Math.ceil(adms/200)) * parseInt(admc);
@@ -449,40 +472,38 @@ $$(document).on('page:init', '.page[data-page="clinica"]', function (e) {
 
 $$(document).on('page:init', '.page[data-page="teatro"]', function (e) {
       
-     debugger
   $$('#calculos').hide();
 
   $$('#btncalteatro').on('click',function(){
-  debugger 
      var abc5 = 0;
      var co2 = 0;
      var halo = 0;
      var ak = 0;
 
-     var genc = $$('#genc').val();
-     var gens = $$('#gens').val();
+     var genc = NaN2Zero(parseInt($$('#genc').val()));
+     var gens = NaN2Zero(parseInt($$('#gens').val()));
      
-     var admc = $$('#admc').val();
-     var adms = $$('#adms').val();
+     var admc = NaN2Zero(parseInt($$('#admc').val()));
+     var adms = NaN2Zero(parseInt($$('#adms').val()));
 
-     var resc = $$('#resc').val();
-     var ress = $$('#ress').val();
+     var resc = NaN2Zero(parseInt($$('#resc').val()));
+     var ress = NaN2Zero(parseInt($$('#ress').val()));
 
-     var farc = $$('#farc').val();
-     var fars = $$('#fars').val();
+     var farc = NaN2Zero(parseInt($$('#farc').val()));
+     var fars = NaN2Zero(parseInt($$('#fars').val()));
 
-     var infc = $$('#infc').val();
-     var infs = $$('#infs').val();
+     var infc = NaN2Zero(parseInt($$('#infc').val()));
+     var infs = NaN2Zero(parseInt($$('#infs').val()));
 
-     var ropc = $$('#ropc').val();
-     var rops = $$('#rops').val();      
+     var ropc = NaN2Zero(parseInt($$('#ropc').val()));
+     var rops = NaN2Zero(parseInt($$('#rops').val()));      
 
-     var hisc = $$('#hisc').val();
-     var hiss = $$('#hiss').val();
+     var hisc = NaN2Zero(parseInt($$('#hisc').val()));
+     var hiss = NaN2Zero(parseInt($$('#hiss').val()));
 
-     var cocc  = $$('#cocc').val();
-     var cocherac = $$('#cocherac').val();
-     var salamaqc = $$('#salamaqc').val();
+     var cocc  = NaN2Zero(parseInt($$('#cocc').val()));
+     var cocherac = NaN2Zero(parseInt($$('#cocherac').val()));
+     var salamaqc = NaN2Zero(parseInt($$('#salamaqc').val()));
      
      var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
      var cantadm   =  parseInt(Math.ceil(adms/200)) * parseInt(admc);
@@ -523,28 +544,26 @@ $$(document).on('page:init', '.page[data-page="teatro"]', function (e) {
 
 $$(document).on('page:init', '.page[data-page="bares"]', function (e) {
       
-     debugger
   $$('#calculos').hide();
 
-  $$('#btncalbares').on('click',function(){
-  debugger 
+  $$('#btncalbares').on('click',function(){ 
      var abc5 = 0;
      var co2 = 0;
      var halo = 0;
      var ak = 0;
 
-     var genc = $$('#genc').val();
-     var gens = $$('#gens').val();
+     var genc = NaN2Zero(parseInt($$('#genc').val()));
+     var gens = NaN2Zero(parseInt($$('#gens').val()));
      
-     var admc = $$('#admc').val();
-     var adms = $$('#adms').val();
+     var admc = NaN2Zero(parseInt($$('#admc').val()));
+     var adms = NaN2Zero(parseInt($$('#adms').val()));
 
-     var resc = $$('#resc').val();
-     var ress = $$('#ress').val();
+     var resc = NaN2Zero(parseInt($$('#resc').val()));
+     var ress = NaN2Zero(parseInt($$('#ress').val()));
 
-     var cocc  = $$('#cocc').val();
-     var cocherac = $$('#cocherac').val();
-     var salamaqc = $$('#salamaqc').val();
+     var cocc  = NaN2Zero(parseInt($$('#cocc').val()));
+     var cocherac = NaN2Zero(parseInt($$('#cocherac').val()));
+     var salamaqc = NaN2Zero(parseInt($$('#salamaqc').val()));
      
      var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
      var cantadm   =  parseInt(Math.ceil(adms/200)) * parseInt(admc);
@@ -578,42 +597,41 @@ $$(document).on('page:init', '.page[data-page="colegio"]', function (e) {
   $$('#calculos').hide();
 
   $$('#btncalcolegio').on('click',function(){
-  debugger 
      var abc5 = 0;
      var co2 = 0;
      var halo = 0;
      var ak = 0;
 
-     var genc = $$('#genc').val();
-     var gens = $$('#gens').val();
+     var genc = NaN2Zero(parseInt($$('#genc').val()));
+     var gens = NaN2Zero(parseInt($$('#gens').val()));
      
-     var admc = $$('#admc').val();
-     var adms = $$('#adms').val();
+     var admc = NaN2Zero(parseInt($$('#admc').val()));
+     var adms = NaN2Zero(parseInt($$('#adms').val()));
 
-     var resc = $$('#resc').val();
-     var ress = $$('#ress').val();
+     var resc = NaN2Zero(parseInt($$('#resc').val()));
+     var ress = NaN2Zero(parseInt($$('#ress').val()));
 
-     var farc = $$('#farc').val();
-     var fars = $$('#fars').val();
+     var farc = NaN2Zero(parseInt($$('#farc').val()));
+     var fars = NaN2Zero(parseInt($$('#fars').val()));
 
-     var infc = $$('#infc').val();
-     var infs = $$('#infs').val();
+     var infc = NaN2Zero(parseInt($$('#infc').val()));
+     var infs = NaN2Zero(parseInt($$('#infs').val()));
 
-     var ropc = $$('#ropc').val();
-     var rops = $$('#rops').val();      
+     var ropc = NaN2Zero(parseInt($$('#ropc').val()));
+     var rops = NaN2Zero(parseInt($$('#rops').val()));      
 
-     var hisc = $$('#hisc').val();
-     var hiss = $$('#hiss').val();
+     var hisc = NaN2Zero(parseInt($$('#hisc').val()));
+     var hiss = NaN2Zero(parseInt($$('#hiss').val()));
 
-     var lavc = $$('#lavc').val();
-     var lavs = $$('#lavs').val();
+     var lavc = NaN2Zero(parseInt($$('#lavc').val()));
+     var lavs = NaN2Zero(parseInt($$('#lavs').val()));
 
-     var comc = $$('#comc').val();
-     var coms = $$('#coms').val();
+     var comc = NaN2Zero(parseInt($$('#comc').val()));
+     var coms = NaN2Zero(parseInt($$('#coms').val()));
 
-     var cocc  = $$('#cocc').val();
-     var cocherac = $$('#cocherac').val();
-     var salamaqc = $$('#salamaqc').val();
+     var cocc  = NaN2Zero(parseInt($$('#cocc').val()));
+     var cocherac = NaN2Zero(parseInt($$('#cocherac').val()));
+     var salamaqc = NaN2Zero(parseInt($$('#salamaqc').val()));
      
      var cantgen   =  parseInt(Math.ceil(gens/200))  * parseInt(genc);
      var cantadm   =  parseInt(Math.ceil(adms/200)) * parseInt(admc);
@@ -666,13 +684,13 @@ $$(document).on('page:init', '.page[data-page="comercio"]', function (e) {
      var co2 = 0;
      var halo = 0;
 
-     var pisoc = $$('#pisoc').val();
-     var pisos = $$('#pisos').val();
-     var sumc = $$('#sumc').val();
-     var sums = $$('#sums').val();
-     var cocherac = $$('#cocherac').val();
-     var salamaqc = $$('#salamaqc').val();
-     var gasc = $$('#gasc').val();
+     var pisoc = NaN2Zero(parseInt($$('#pisoc').val()));
+     var pisos = NaN2Zero(parseInt($$('#pisos').val()));
+     var sumc = NaN2Zero(parseInt($$('#sumc').val()));
+     var sums = NaN2Zero(parseInt($$('#sums').val()));
+     var cocherac = NaN2Zero(parseInt($$('#cocherac').val()));
+     var salamaqc = NaN2Zero(parseInt($$('#salamaqc').val()));
+     var gasc = NaN2Zero(parseInt($$('#gasc').val()));
 
      var cantpiso  = parseInt(Math.ceil(pisos/200))  * parseInt(pisoc);
      var cantsum   =  parseInt(Math.ceil(sums/200)) * parseInt(sumc);
@@ -698,7 +716,6 @@ $$(document).on('page:init', '.page[data-page="comercio"]', function (e) {
 
 $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
             
-            debugger
             $$('.preloader').hide();
             $$('#datos_cliente').hide();
             $$("#datos_cliente")[0].reset();
@@ -801,7 +818,6 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
                                    $$('#btnokpedido').click();
                                    $$("#datos_cliente")[0].reset();
                                    $$('#datos_cliente').hide();
-                                   debugger
                                    pedidosData.length=0;
                                    $$('#carro_cantidad').html();
                                 })
@@ -819,7 +835,6 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
                       }
 //SI EL CLIENTE YA EXISTE SE REALIZA ESTA ACCION                      
                       else{ 
-                        debugger
                                 var listadoPedido = new Array();
                                  pedidosData.forEach(function (elemento, indice, array) {
                                   var itemsPedido = {"tipo": elemento.tipo_prod ,
