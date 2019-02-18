@@ -134,7 +134,7 @@ function Null2Zero(n){
 
 $$(document).on('page:init', '.page[data-page="productos"]', function (e) {
 
-   axios.get('http://www.enodje.e-widux.com/api/tam_productos')
+   axios.get('http://www.enodje.ewidux.com/api/tam_productos')
             .then(function (response) {
               $$('.preloader').hide();
               for(var i in response.data) {
@@ -726,7 +726,7 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
 
               console.log(dni_cliente)
               $$('.preloader').show();
-                axios.get('http://www.enodje.e-widux.com/api/tam_clientes/5/'+dni_cliente)
+                axios.get('http://www.enodje.ewidux.com/api/tam_clientes/5/'+dni_cliente)
                 .then(function (response) {
                   
                   $$('.preloader').hide();
@@ -771,7 +771,7 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
 //CLIENTE NUEVO SE REALIZA ESTA ACCION
                     if(idCliente == "nuevo"){  
                         
-                        axios.post('http://www.enodje.e-widux.com/api/tam_clientes',
+                        axios.post('http://www.enodje.ewidux.com/api/tam_clientes',
                         {
                                 "cod_empresa": 1,
                                 "cod_tipo_doc": 5,
@@ -806,7 +806,7 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
                                       "tar_pedidos_detall": listadoPedido
                                     };   
                                      
-                                 axios.post('http://www.enodje.e-widux.com/api/tam_pedidos', pedidos2)
+                                 axios.post('http://www.enodje.ewidux.com/api/tam_pedidos', pedidos2)
                                   .then(function (response) {
                                     console.log("seha creado el pedido");
                                     console.log(response);
@@ -850,7 +850,7 @@ $$(document).on('page:init', '.page[data-page="checkoutdni"]', function (e) {
                                       "tar_pedidos_detall": listadoPedido
                                     };   
                                      
-                                 axios.post('http://www.enodje.e-widux.com/api/tam_pedidos', pedidos2)
+                                 axios.post('http://www.enodje.ewidux.com/api/tam_pedidos', pedidos2)
                                   .then(function (response) {
                                     console.log("se ha creado el pedido");
                                     console.log(response);
