@@ -43,7 +43,4 @@
     </platform>
     
     <engine name="android" spec="~6.3.0" />
-    <preference name="android-minSdkVersion" value="26"/>
-    <preference name="android-targetSdkVersion" value="26"/>
-    <preference name="android-maxSdkVersion" value="26"/>
 </widget>
